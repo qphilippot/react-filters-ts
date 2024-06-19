@@ -1,14 +1,15 @@
+// @ts-ignore
 import {useFilters} from "../hooks/FilterContext.tsx";
 
-export default function FilterList() {
-    const filters = useFilters();
-
+export default function ItemList({ items }) {
     return (
-        <ul>
+        <ul className='items-list'>
             {
-                filters.map(filter => (
-                    <li key={filter.attribute}>
-                        <b>{filter.attribute}:</b>{filter.eq}
+                items.map(item => (
+                    <li
+                        key={item.id}
+                        className={item.shape + ' ' + item.color }
+                    >
                     </li>
                 ))
             }
